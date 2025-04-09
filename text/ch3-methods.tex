@@ -1,0 +1,43 @@
+\chapter{Methods}
+\label{ch:4-methods}
+
+\minitoc
+
+\section{Animals}
+% Can I have what Rikesh wrote there? Careful, it is very similar
+Tamoxifen (MP Biomedicals; 156738) was dissolved in corn oil at 25 mg/ml. All animals were treated with tamoxifen starting from 4-5 weeks of age for 4 weeks. Mice received 100 mg/kg tamoxifen intraperitoneally on weekdays.
+\section{Surgical procedures}
+Mice received 3 \% isofluorane for induction of general anaesthesia. Isofluorane levels were lowered to 1.5-2\% for maintenance throughout the surgery. Anaesthetic depth was assessed by monitoring the pedal withdrawal reflex and the breathing rate. Eye ointment was provided by applying Viscotears (TODO: add supplier) and body temperature maintained by placing the mouse on a heat pad. Carprofen was administered subcutaneously prior to the incision. Mice were then transferred to a Mouse Ultra Precise Stereotaxic Instrument (World Precision Instruments, WPI) and head fixed using ear bars. The scalp was disinfected using dilute chlorhexidine and then cleaned with ethanol.  EMLA-Cream (TODO: add supplier and stuff) containing Lidocain and Prilocain was applied to the scalp prior to incision of the skin. After incision of the skin, the skin margins were glued to the skull using Vetbond (3M).
+A 3.5 mm wide craniotomy was drilled  with the centre being 2.0 mm posterior to Bregma to expose the retro-splenial cortex, using an OmniDrill35 (WPI).
+pGP-AAV-syn-jGCaMP8s-WPRE (addgene; 162374-AAV1) was diluted 1:2 using PBS. 1 µl of the dilution was injected into each hemisphere, at 0.75 mm depth, at a rate of 100 nl per minute using a 10 µl Hamilton syringe, secured and controlled by a UMP3 UltraMicroPump (WPI).
+Shortly after the injections, a cranial window was implanted and secured using Vetbond (3M). A customly designed titanium head plate was glued in place using superglue and then the incision was closed using dental cement (Super-Bond; Sun Medical), covering the skull, window and head plate.
+Anesthesia was turned off and buprenorphine administered immediately afterwards. Postoperative pain relief was administered by providing carprofen in mice's drinking water for three days following the procedure. Animals were monitored for three postoperative days, assessing weight and health, the latter by using scoring sheets.
+\section{Water restriction}
+Animals were allowed to recover from surgery for at least XX (TODO!) days before being put on water restriction. Mice received approximately 40 ml of water per kilogram bodyweight, i.e. 1 ml of water for a standard 25 g mouse. No animal was allowed to lose more than 20\% of the pre-water restriction weight and / or show pain, discomfort, or distress. The animals were weighed and monitored daily.
+For the first behavioural time point, water restriction began two days before commencing the habituation scheme. For the second behavioural time point, mice were put on water restriction three days before starting habituation.
+\section{Behavioural task}
+We designed a spatial-navigation task (TODO: is this correct?) to investigate differences in learning, behaviour and neural activity patterns in the three groups mentioned above.
+For this, we built a custom behavioural training rig using the International Brain Laboratory protocol (TODO: https://elifesciences.org/articles/63711, also read!) and adapted IBL rig code (https://github.com/int-brain-lab/iblrig, version 8).
+We built two versions of our behavioural training rig, one within a box (TODO: wording) and another one under our two-photon microscope for simultaneous imaging.
+(TODO: Sun et al.) Mice were trained to learn the distinction of two textures, \textit{pebble} and \textit{black-and-white circles}. The animals were assigned a rewarded texture randomly.  Mice were head fixed to run on a linear treadmill and presented with corridors of either texture, alternated in a random order. Each passage through a corridor was considered a \textit{trial}. The mice had to move on the treadmill to move forward in the corridor. In the rewarded context, mice received a water reward after having moved 180 cm, no such reward was delivered in the unrewarded context. After this \textit{reward zone}, an \textit{inter-trial-interval (ITI)} of 20 seconds followed where the screens went black. Trials which were not completed after 5 minutes were considered as timed-out and the mouse was teleported to the beginning of another trial. Each day of training was considered a \textit{session}, and each session was limited to approximately 60 minutes.
+Learning was measured by differences in speed and licking in both contexts: Naive mice show unspecific licking, especially in the reward zones, in both contexts and mostly similar speeds. Mice which have learned the task will pre-dominantly lick in the rewarded context, and especially so in the reward zone and in the area before, which we considered the \textit{anticipatory zone}.
+We computed a learning metric following this formula:
+\begin{equation}
+\text{Learning metric} = \frac{d^{\prime}(\text{licking}) + d^{\prime}(\text{speed})}{2}
+\end{equation}
+(TODO: more explanation needed?)
+After completing one or multiple sessions, animals which showed a learning metric above one for at least 50 trials were considered having learned the distinction and subsequently moved to the next stage.
+\section{Behavioural paradigm}
+\subsection{First behavioural time point}
+Habituations started at an age of XX (TODO!), after starting the water restriction and lasted for 9 days. Briefly, mice were habituated to being handled and head fixed for progressively longer periods of time without showing any signs of pain, discomfort or distress. In addition, the habituation protocol included running on the linear treadmill, and licking a lick spout (TODO: is this word okay?). After 5-7 days of habituation in the training box (TODO: wording), we performed an expression check. Mice which exhibited sufficient viral expression for two-photon imaging were habituated on the rig under the two-photon microscope for the remaining days. Those mice, which did not show sufficient expression where moved back to the training box and kept as behaviour-only mice.
+A subset of mice received an awake baseline recording (TODO!) while being head fixed and in a plastic tube rather than on the linear treadmill.
+Training of animals started at an age of 4.5 to 5 months (TODO: verify!): As mentioned above, each mouse was randomly assigned an \textit{initially rewarded texture}. After having learned the initial distinction, the rewarded texture for the individual mouse was swapped (\textit{reversal learning}). Once mice learned the reversed distinction, they were done with the first time point and taken off water restriction.
+\subsection{Second behavioural time point}
+At least 60 days after completion of the first behavioural time point, mice were tested for memory recall and learning flexibility (TODO: wording?).
+Mice were re-habituated after being put on water restriction until they did not exhibit any signs of pain, distress or discomfort and until they reliable ran on the treadmill and licked the spout. This usually took 2-3 days of re-habituation (TODO: verify!). The viral expression was re-checked on the first day of re-habituation to decide whether the mice should be moved to the training box (TODO: wording!).
+Re-training of animals started at an age of XX months (TODO: verify!). Mice started with the last reward condition they were exposed to \textit{memory recall}, i.e. the rewarded texture in the \textit{reversal learning}. Once mice learned the distinction, the rewarded texture was yet again swapped to the initially rewarded texture \textit{recall reversal learning}. After having re-learned the initial reward condition, mice were taken off water restriction.
+
+\section{Tissue and blood biomarkers}
+
+\section{Two-photon recordings}
+%TODO: where should I report the expression checks etc.???
