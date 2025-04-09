@@ -6,12 +6,16 @@
 \section{Animals}
 % Can I have what Rikesh wrote there? Careful, it is very similar
 Tamoxifen (MP Biomedicals; 156738) was dissolved in corn oil at 25 mg/ml. All animals were treated with tamoxifen starting from 4-5 weeks of age for 4 weeks. Mice received 100 mg/kg tamoxifen intraperitoneally on weekdays.
+% TODO: ask Jimmy or Rob, should I even report it was a "dirty" wildtype?
+For the MBP-GCaMP injected mouse, we used an APP/PS1/rTg21221 mouse which was negative for all mutations. Additionally, this mouse has not been injected with tamoxifen.
 \section{Surgical procedures}
-Mice received 3 \% isofluorane for induction of general anaesthesia. Isofluorane levels were lowered to 1.5-2\% for maintenance throughout the surgery. Anaesthetic depth was assessed by monitoring the pedal withdrawal reflex and the breathing rate. Eye ointment was provided by applying Viscotears (TODO: add supplier) and body temperature maintained by placing the mouse on a heat pad. Carprofen was administered subcutaneously prior to the incision. Mice were then transferred to a Mouse Ultra Precise Stereotaxic Instrument (World Precision Instruments, WPI) and head fixed using ear bars. The scalp was disinfected using dilute chlorhexidine and then cleaned with ethanol.  EMLA-Cream (TODO: add supplier and stuff) containing Lidocain and Prilocain was applied to the scalp prior to incision of the skin. After incision of the skin, the skin margins were glued to the skull using Vetbond (3M).
+Mice received 3 \% isofluorane for induction of general anaesthesia. Isofluorane levels were lowered to 1.5-2\% for maintenance throughout the surgery. Anaesthetic depth was assessed by monitoring the pedal withdrawal reflex and the breathing rate. Eye ointment was provided by applying Viscotears (TODO: add supplier) and body temperature maintained by placing the mouse on a heat pad. Carprofen was administered subcutaneously prior to the incision. Mice were then transferred to a Mouse Ultra Precise Stereotaxic Instrument (World Precision Instruments, WPI) and head fixed using ear bars. The scalp was shaven, disinfected using dilute chlorhexidine and then cleaned with ethanol.  EMLA-Cream (TODO: add supplier and stuff) containing Lidocain and Prilocain was applied to the scalp prior to incision of the skin. After incision of the skin, the skin margins were glued to the skull using Vetbond (3M).
 A 3.5 mm wide craniotomy was drilled  with the centre being 2.0 mm posterior to Bregma to expose the retro-splenial cortex, using an OmniDrill35 (WPI).
 pGP-AAV-syn-jGCaMP8s-WPRE (addgene; 162374-AAV1) was diluted 1:2 using PBS. 1 µl of the dilution was injected into each hemisphere, at 0.75 mm depth, at a rate of 100 nl per minute using a 10 µl Hamilton syringe, secured and controlled by a UMP3 UltraMicroPump (WPI).
 Shortly after the injections, a cranial window was implanted and secured using Vetbond (3M). A customly designed titanium head plate was glued in place using superglue and then the incision was closed using dental cement (Super-Bond; Sun Medical), covering the skull, window and head plate.
 Anesthesia was turned off and buprenorphine administered immediately afterwards. Postoperative pain relief was administered by providing carprofen in mice's drinking water for three days following the procedure. Animals were monitored for three postoperative days, assessing weight and health, the latter by using scoring sheets.
+\subsection{MBP-GCaMP}
+The methodology for the MBP-GCaMP injected mouse followed the same surgical procedure described above, with the exception that MBP:jGCaMP8s AAV5 was used (TODO: Sverre Grødem, University of Oslo).
 \section{Water restriction}
 Animals were allowed to recover from surgery for at least XX (TODO!) days before being put on water restriction. Mice received approximately 40 ml of water per kilogram bodyweight, i.e. 1 ml of water for a standard 25 g mouse. No animal was allowed to lose more than 20\% of the pre-water restriction weight and / or show pain, discomfort, or distress. The animals were weighed and monitored daily.
 For the first behavioural time point, water restriction began two days before commencing the habituation scheme. For the second behavioural time point, mice were put on water restriction three days before starting habituation.
@@ -31,13 +35,72 @@ After completing one or multiple sessions, animals which showed a learning metri
 \subsection{First behavioural time point}
 Habituations started at an age of XX (TODO!), after starting the water restriction and lasted for 9 days. Briefly, mice were habituated to being handled and head fixed for progressively longer periods of time without showing any signs of pain, discomfort or distress. In addition, the habituation protocol included running on the linear treadmill, and licking a lick spout (TODO: is this word okay?). After 5-7 days of habituation in the training box (TODO: wording), we performed an expression check. Mice which exhibited sufficient viral expression for two-photon imaging were habituated on the rig under the two-photon microscope for the remaining days. Those mice, which did not show sufficient expression where moved back to the training box and kept as behaviour-only mice.
 A subset of mice received an awake baseline recording (TODO!) while being head fixed and in a plastic tube rather than on the linear treadmill.
-Training of animals started at an age of 4.5 to 5 months (TODO: verify!): As mentioned above, each mouse was randomly assigned an \textit{initially rewarded texture}. After having learned the initial distinction, the rewarded texture for the individual mouse was swapped (\textit{reversal learning}). Once mice learned the reversed distinction, they were done with the first time point and taken off water restriction.
+Training of animals started at an age of 4.5 to 5 months (TODO: verify!): First, mice were introduced to the task and both textures without receiving any rewards in any context (\textit{unsupervised learning}). Then, as mentioned above, each mouse was randomly assigned an \textit{initially rewarded texture}. After having learned the initial distinction, the rewarded texture for the individual mouse was swapped (\textit{reversal learning}). Once mice learned the reversed distinction, they were done with the first time point and taken off water restriction.
 \subsection{Second behavioural time point}
 At least 60 days after completion of the first behavioural time point, mice were tested for memory recall and learning flexibility (TODO: wording?).
 Mice were re-habituated after being put on water restriction until they did not exhibit any signs of pain, distress or discomfort and until they reliable ran on the treadmill and licked the spout. This usually took 2-3 days of re-habituation (TODO: verify!). The viral expression was re-checked on the first day of re-habituation to decide whether the mice should be moved to the training box (TODO: wording!).
 Re-training of animals started at an age of XX months (TODO: verify!). Mice started with the last reward condition they were exposed to \textit{memory recall}, i.e. the rewarded texture in the \textit{reversal learning}. Once mice learned the distinction, the rewarded texture was yet again swapped to the initially rewarded texture \textit{recall reversal learning}. After having re-learned the initial reward condition, mice were taken off water restriction.
-
-\section{Tissue and blood biomarkers}
-
-\section{Two-photon recordings}
+\section{Two-photon recordings and data processing}
 %TODO: where should I report the expression checks etc.???
+
+%TODO: is this too close to the section in the Isaac's lab paper which Rob did?
+\subsection{Image acquisition}
+\label{Image acquisition}
+For in-vivo two-photon calcium imaging, we used a custom-built resonant-scanning two-photon microscope (Independent NeuroScience Services), equipped with a tunable laser (Coherent Chameleon Discovery NX) and using a 16x water immersion objective (0.8 numerical aperture, Nikon). Image acquisition was controlled by ScanImage (MBF Bioscience) and performed at a wavelength of 910-920 nm and fluorescence detected with a GaAsP photomultiplier tube (Hamamatsu). The images were acquired at 30 fps and 2x zoom, with 512x512 pixels covering a FOV of 500x500 µm.
+\subsubsection{Repeated recordings}
+On the day of the first unsupervised learning session, a reference FOV was selected for each mouse to be imaged from in all subsequent recordings. The criteria used to determine the best FOV were the following:
+\begin{enumerate}
+    \item number of active cells (i.e., cells showing calcium dynamics)
+    \item distance from probable injection site
+    \item absence of larger blood vessels, absence of haemorrhages and petechiae
+\end{enumerate}
+%TODO: reference the nature communications paper which I presented in JC?
+Then, for the subsequent days, we tried to image from the same FOV, indentifying it by:
+\begin{enumerate}
+    \item patterns of larger blood vessels
+    \item patterns of smaller blood vessels
+    \item depth from brain surface
+    \item distinct, "landmark" cells
+\end{enumerate}
+% TODO: something about simultaneous recordings?
+\subsubsection{Reactivation sessions}
+For a subset of mice, we wanted to look at reactivation of neural activity patterns after the mouse has finished a behaviour session.
+For this, we modified the behavioural task analogously to (TODO: Grosmark et al.!), so that we imaged from the animal for 15 mins, prior to the session, during the task, and then for another 15 mins after the session.
+\subsubsection{MBP-GCaMP recordings}
+The acquisition of recordings with the MBP-GCaMP injected mouse follows the procedure laid out in \ref{Image acquisition}, but with different zoom levels.
+%TODO: mention all recordings or just the ones used in the "analysis"
+At approximately 80 µm depth, cells from one FOV were imaged from at 1x and 2x zoom, for 10 mins each.
+%TODO: alternating power recordings?
+\subsection{Calcium activity detection}
+Raw images were processed in suite2p (https://github.com/MouseLand/suite2p) for motion correction and calcium signal extraction. Calcium signals were then deconvolved using an OASIS deconvolution algorithm (https://github.com/j-friedrich/OASIS).
+% TODO: probably also cite OASIS paper?
+For analysis of behavioural data and aligning calcium signals or deconvolved spikes with behavioural events, we used custom-written Python scripts (Python 3.12.2).
+%TODO: Did we change the suite2p settings for the MBP GCaMP?
+%TODO: explain dff
+For the MBP-GCaMP mouse, the calcium activity detection followed the same procedure laid out above, with the exception that the no deconvolution built into suite2p was used. Regions of interests (ROI) were selected by identifying cells by their shape.
+\subsection{Calcium activity in oligodendrocytes}
+For plotting calcium traces of oligodendrocyte-shaped and neuron-shaped cells, cells were manually categorised into each category by cell size and shape (oligodendrocytes are smaller, neurons are bigger and more roundly shaped) (TODO: citation needed?). Dff of XX cells each were plotted.
+For cell size comparisons, the suite2p built in output parameter "radius" of the ROI was used to compute the individual cell sizes. 
+\section{Tissue and blood biomarkers}
+\subsection{Blood samples}
+On average, 180 µl blood was taken from the saphenous vein from each animal after completing the first and second behavioural time point. The blood was cooled and immediately spun down at 3,000 rpm for 10 minutes. Then, the plasma was taken up using a pipette and frozen.
+%TODO: perhaps something about blood biomarkers in the future
+\subsection{Brain extraction}
+%TODO: wording? which PFA? should I mention coronal sections?
+After mice finished the second behavioural time point, intracardiac perfusion of 1x PBS (Gibco) was performed, brains were extracted and the hemisphere which was imaged from was post-fixed in 4\% paraformaldehyde (PFA) for 24 hours. Afterwards, this hemisphere was cryopreserved through increasing concentrations of sucrose, embedded in optimal cutting temperature compound (OCT; CellPath) and frozen on dry ice. (TODO: is this too close to Rikesh's paper?). The other hemisphere was flash frozen for XX. (TODO: specify).
+For behaviour-only mice, the decision of which hemisphere to use for sectioning or XX (TODO: specify), respectively, was made randomly.
+\section{Immunohistochemistry}
+\label{Immunohistochemistry}
+For immunohistochemistry, cryopreserved brains were cut into 10 µm thick sections using a cryostat (CM1860 UV, Leica Microsystem) and frozen.
+Samples were rinsed with PBS (Gibco) before blocking, using a blocking solution containing 10\% normal goat serum (TODO: supplier?) in 0.2\% Triton X in PBS for three hours at room temperature. Then, samples were incubated with primary antibodies in blocking solution overnight at 4°C.
+After washing three times for 10 mins each with 0.2\% Triton X in PBS, samples were incubated with secondary antibodies in blocking solution for three hours at room temperature.
+Following another two washing steps, DAPI was added to the third wash (1:10,000; TODO: supplier) to stain nuclei.
+Lastly, samples were mounted using ProLong Glass Antifade Mountant (Invitrogen) and secured with CoverGrip Coverslip Sealant (Biotium).
+\subsection{MBP-GCaMP}
+% TODO: are the suppliers etc correct
+For validation of sensitivity and specificity of the MBP-GCaMP virus, we used rabbit-anti-ASPA (ABN1698; Sigma), mouse-anti-Olig2 (MABN50, Millipore) and chicken-anti-GFP (ab13970; Abcam) in blocking solution (all 1:500). For secondary antibodies, we used goat-anti-rabbit (647 nm; A-21245; Invitrogen), goat-anti-mouse (594 nm; A-11005; Invitrogen) and goat-anti-chicken (488 nm; A-11039; Invitrogen) antibodies in blocking solution (all 1:500).
+\section{Confocal imaging and analysis}
+\subsection{MBP-GCaMP}
+Confocal images were acquired using a confocal laser scanning microscope (LSM800; Zeiss).
+For quantification, 11 FOVs at 40x zoom were taken from the right-hand hemisphere on three different slices (3, 4 and 4 FOVs, respectively) and analysed using the Fiji build of ImageJ (version 2.16.0; https://imagej.net/software/fiji/). Firstly, brightness and contrast were adjusted using the built-in function "Adjust Brightness/Contrast Auto", then positive cells were counted manually for each channel and all combinations of the individual channels using the "Cell Counter" function.
+GFP-positive cells were considered labelled by the GCaMP virus. Cells were considered oligodendrocytes if they were positive for both ASPA and Olig2. Correctly labelled oligodendrocytes were defined by being positive for ASPA, Olig2 and GFP. Sensitivity and specificity were computed using custom-written Python scripts (Python 3.12.3) and Jupyter notebooks.
