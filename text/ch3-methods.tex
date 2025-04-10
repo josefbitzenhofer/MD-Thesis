@@ -23,6 +23,7 @@ For the first behavioural time point, water restriction began two days before co
 We designed a spatial-navigation task (TODO: is this correct?) to investigate differences in learning, behaviour and neural activity patterns in the three groups mentioned above.
 For this, we built a custom behavioural training rig using the International Brain Laboratory protocol (TODO: https://elifesciences.org/articles/63711, also read!) and adapted IBL rig code (https://github.com/int-brain-lab/iblrig, version 8).
 We built two versions of our behavioural training rig, one within a box (TODO: wording) and another one under our two-photon microscope for simultaneous imaging.
+Both contained a custom built linear treadmill, three LCD screens covering 360° of the mouse's view and an optimal lickometer (1020; Sanworks) or a custom built electrical conductive sensor for lick detection.
 (TODO: Sun et al.) Mice were trained to learn the distinction of two textures, \textit{pebble} and \textit{black-and-white circles}. The animals were assigned a rewarded texture randomly.  Mice were head fixed to run on a linear treadmill and presented with corridors of either texture, alternated in a random order. Each passage through a corridor was considered a \textit{trial}. The mice had to move on the treadmill to move forward in the corridor. In the rewarded context, mice received a water reward after having moved 180 cm, no such reward was delivered in the unrewarded context. After this \textit{reward zone}, an \textit{inter-trial-interval (ITI)} of 20 seconds followed where the screens went black. Trials which were not completed after 5 minutes were considered as timed-out and the mouse was teleported to the beginning of another trial. Each day of training was considered a \textit{session}, and each session was limited to approximately 60 minutes.
 Learning was measured by differences in speed and licking in both contexts: Naive mice show unspecific licking, especially in the reward zones, in both contexts and mostly similar speeds. Mice which have learned the task will pre-dominantly lick in the rewarded context, and especially so in the reward zone and in the area before, which we considered the \textit{anticipatory zone}.
 We computed a learning metric following this formula:
@@ -70,20 +71,33 @@ For this, we modified the behavioural task analogously to (TODO: Grosmark et al.
 The acquisition of recordings with the MBP-GCaMP injected mouse follows the procedure laid out in \ref{Image acquisition}, but with different zoom levels.
 %TODO: mention all recordings or just the ones used in the "analysis"
 At approximately 80 µm depth, cells from one FOV were imaged from at 1x and 2x zoom, for 10 mins each.
-%TODO: alternating power recordings?
+% TODO: was it the same FOV
+For one recording, the laser power was alternated to check whether calcium dynamics were induced by photostimulation (TODO: is this the correct word?). Cells were imaged for 3 minutes each with 18, 33, 52 and 74 mW power on sample.
 \subsection{Calcium activity detection}
-Raw images were processed in suite2p (https://github.com/MouseLand/suite2p) for motion correction and calcium signal extraction. Calcium signals were then deconvolved using an OASIS deconvolution algorithm (https://github.com/j-friedrich/OASIS).
+Raw images were processed in suite2p (https://github.com/MouseLand/suite2p) for motion correction and calcium signal extraction. Calcium signals were then deconvolved using an OASIS deconvolution algorithm\\ (https://github.com/j-friedrich/OASIS).
 % TODO: probably also cite OASIS paper?
 For analysis of behavioural data and aligning calcium signals or deconvolved spikes with behavioural events, we used custom-written Python scripts (Python 3.12.2).
 %TODO: Did we change the suite2p settings for the MBP GCaMP?
 %TODO: explain dff
+For some analyses we computed \(\Delta \)F/F as follows:
+Firstly, we subtracted neuropil signal from the fluorescence signal to account for neuropil contamination.
+\begin{equation}
+    F = F_{\text{raw}} - (F_{\text{neu}} \times 0.7)
+    \label{eq:f}
+\end{equation}
+Then, we normalised fluorescence to mean fluorescence ($F_0$).
+\begin{equation}
+    \text{ΔF/F} = \frac{F(t) - F_0}{F_0}
+    \label{eq:dFF}
+\end{equation}
 For the MBP-GCaMP mouse, the calcium activity detection followed the same procedure laid out above, with the exception that the no deconvolution built into suite2p was used. Regions of interests (ROI) were selected by identifying cells by their shape.
 \subsection{Calcium activity in oligodendrocytes}
 For plotting calcium traces of oligodendrocyte-shaped and neuron-shaped cells, cells were manually categorised into each category by cell size and shape (oligodendrocytes are smaller, neurons are bigger and more roundly shaped) (TODO: citation needed?). Dff of XX cells each were plotted.
 For cell size comparisons, the suite2p built in output parameter "radius" of the ROI was used to compute the individual cell sizes. 
+% TODO: alternating power recording??
 \section{Tissue and blood biomarkers}
 \subsection{Blood samples}
-On average, 180 µl blood was taken from the saphenous vein from each animal after completing the first and second behavioural time point. The blood was cooled and immediately spun down at 3,000 rpm for 10 minutes. Then, the plasma was taken up using a pipette and frozen.
+On average, 180 µl of blood were taken from the saphenous vein from each animal after completing the first and second behavioural time point. The blood was cooled and immediately spun down at 3,000 rpm for 10 minutes. Then, the plasma was taken up using a pipette and frozen.
 %TODO: perhaps something about blood biomarkers in the future
 \subsection{Brain extraction}
 %TODO: wording? which PFA? should I mention coronal sections?
@@ -98,9 +112,26 @@ Following another two washing steps, DAPI was added to the third wash (1:10,000;
 Lastly, samples were mounted using ProLong Glass Antifade Mountant (Invitrogen) and secured with CoverGrip Coverslip Sealant (Biotium).
 \subsection{MBP-GCaMP}
 % TODO: are the suppliers etc correct
-For validation of sensitivity and specificity of the MBP-GCaMP virus, we used rabbit-anti-ASPA (ABN1698; Sigma), mouse-anti-Olig2 (MABN50, Millipore) and chicken-anti-GFP (ab13970; Abcam) in blocking solution (all 1:500). For secondary antibodies, we used goat-anti-rabbit (647 nm; A-21245; Invitrogen), goat-anti-mouse (594 nm; A-11005; Invitrogen) and goat-anti-chicken (488 nm; A-11039; Invitrogen) antibodies in blocking solution (all 1:500).
+For validation of sensitivity and specificity of the MBP-GCaMP virus, the injected mouse was sacrificed and perfused. Samples were obtained and stained following the procedure described above. We used rabbit-anti-ASPA (ABN1698; Sigma), mouse-anti-Olig2 (MABN50, Millipore) and chicken-anti-GFP (ab13970; Abcam) in blocking solution (all 1:500). For secondary antibodies, we used goat-anti-rabbit (647 nm; A-21245; Invitrogen), goat-anti-mouse (594 nm; A-11005; Invitrogen) and goat-anti-chicken (488 nm; A-11039; Invitrogen) antibodies in blocking solution (all 1:500).
+\subsection{Myelination area fraction}
+% TODO: wording
+% TODO: check with Rikesh if this is consistent
+% TODO: did she not wash after the secondaries???
+For analysing myelination in prefrontal cortices (TODO: is this correct?), 2, 4 and 12 month old male and female APP$^{NL-G-F}$ mice sacrificed and perfused. Sections were obtained following the above mentioned procedure. Samples were first washed in PBS (Gibco), and then blocked using a blocking solution containing 10\% normal goat serum (TODO: supplier?) in 0.3\% Triton X in PBS for five hours at room temperature. Then, samples were incubated with primary antibodies in blocking solution overnight at 4°C. After washing three times for 10 mins each with 0.3\% Triton X in PBS, samples were incubated with secondary antibodies in blocking solution for two hours at room temperature. Subsequently, DAPI was diluted 1:5000 in PBS and put on the samples to stain nuclei.
+Lastly, samples were mounted using ProLong Glass Antifade Mountant (Invitrogen) and secured with CoverGrip Coverslip Sealant (Biotium).
+As primary antibodies, rabbit-anti-Olig2 (1:200; AB9610; Millipore), mouse-anti-CC1 (1:200; OP80; Millipore) and rat-anti-MBP (1:300; MCA409S; Bio-Rad) were used.
+The secondary antibodies were goat-anti-rabbit (488 nm; A-11008; Invitrogen), goat-anti-mouse (594 nm; A-11005; Invitrogen) and goat-anti-rat (647 nm; A-21247; Invitrogen).
 \section{Confocal imaging and analysis}
 \subsection{MBP-GCaMP}
+% TODO: do I feel confident to claim layer 2/3?
 Confocal images were acquired using a confocal laser scanning microscope (LSM800; Zeiss).
-For quantification, 11 FOVs at 40x zoom were taken from the right-hand hemisphere on three different slices (3, 4 and 4 FOVs, respectively) and analysed using the Fiji build of ImageJ (version 2.16.0; https://imagej.net/software/fiji/). Firstly, brightness and contrast were adjusted using the built-in function "Adjust Brightness/Contrast Auto", then positive cells were counted manually for each channel and all combinations of the individual channels using the "Cell Counter" function.
+For quantification, 11 FOVs were taken using a 40x oil immersion objective from the right-hand hemisphere on three different slices (3, 4 and 4 FOVs, respectively) and analysed using the Fiji build of ImageJ (version 2.16.0;\\ https://imagej.net/software/fiji/). Firstly, brightness and contrast were adjusted using the built-in function "Adjust Brightness/Contrast Auto", then positive cells were counted manually for each channel and all combinations of the individual channels using the "Cell Counter" function.
 GFP-positive cells were considered labelled by the GCaMP virus. Cells were considered oligodendrocytes if they were positive for both ASPA and Olig2. Correctly labelled oligodendrocytes were defined by being positive for ASPA, Olig2 and GFP. Sensitivity and specificity were computed using custom-written Python scripts (Python 3.12.3) and Jupyter notebooks.
+\subsection{Myelination area fraction}
+% TODO: check if these informations apply to all images
+% TODO: brain region?
+% TODO: some had more or less steps in the z-stack, right?
+% TODO: how much was actually analysed?
+Confocal images were acquired using a confocal laser scanning microscope (LSM800; Zeiss) with a 40x oil immersion objective. Images were taken from the deep as well as superficial pre-frontal cortex (TODO: is this right?) and from the corpus callosum, with 5 FOVs per region on average. Each image encompasses a z-stack with a step size of 1 μm.\\
+Further analysis was conducted using custom-written Python scripts (Python XX):
+% TODO: add the analysis steps from the python code
