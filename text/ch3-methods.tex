@@ -1,5 +1,5 @@
-\chapter{Methods}
-\label{ch:4-methods}
+\chapter{Materials and Methods}
+\label{ch:2-methods}
 
 \minitoc
 
@@ -23,8 +23,9 @@ For the first behavioural time point, water restriction began two days before co
 We designed a spatial-navigation task (TODO: is this correct?) to investigate differences in learning, behaviour and neural activity patterns in the three groups mentioned above.
 For this, we built a custom behavioural training rig using the International Brain Laboratory protocol (TODO: https://elifesciences.org/articles/63711, also read!) and adapted IBL rig code (https://github.com/int-brain-lab/iblrig, version 8).
 We built two versions of our behavioural training rig, one within a box (TODO: wording) and another one under our two-photon microscope for simultaneous imaging.
-Both contained a custom built linear treadmill, three LCD screens covering 360° of the mouse's view and an optimal lickometer (1020; Sanworks) or a custom built electrical conductive sensor for lick detection.
-(TODO: Sun et al.) Mice were trained to learn the distinction of two textures, \textit{pebble} and \textit{black-and-white circles}. The animals were assigned a rewarded texture randomly.  Mice were head fixed to run on a linear treadmill and presented with corridors of either texture, alternated in a random order. Each passage through a corridor was considered a \textit{trial}. The mice had to move on the treadmill to move forward in the corridor. In the rewarded context, mice received a water reward after having moved 180 cm, no such reward was delivered in the unrewarded context. After this \textit{reward zone}, an \textit{inter-trial-interval (ITI)} of 20 seconds followed where the screens went black. Trials which were not completed after 5 minutes were considered as timed-out and the mouse was teleported to the beginning of another trial. Each day of training was considered a \textit{session}, and each session was limited to approximately 60 minutes.
+Both contained a custom built linear treadmill, three LCD screens covering 240° (TODO: is this correct???, if so, citation?) of the mouse's view and an optimal lickometer (1020; Sanworks) or a custom built electrical conductive sensor for lick detection.
+% TODO: This still needs work and referencing to Sun et al.
+Adapted from \parencite{Sun2021}, mice were trained to learn the distinction of two textures, \textit{pebble} and \textit{black-and-white circles}. The animals were assigned a rewarded texture randomly.  Mice were head fixed to run on a linear treadmill and presented with corridors of either texture, alternated in a random order. Each passage through a corridor was considered a \textit{trial}. The mice had to move on the treadmill to move forward in the corridor. In the rewarded context, mice received a water reward after having moved 180 cm, no such reward was delivered in the unrewarded context. After this \textit{reward zone}, an \textit{inter-trial-interval (ITI)} of 20 seconds followed where the screens went black. Trials which were not completed after 5 minutes were considered as timed-out and the mouse was teleported to the beginning of another trial. Each day of training was considered a \textit{session}, and each session was limited to approximately 60 minutes.
 Learning was measured by differences in speed and licking in both contexts: Naive mice show unspecific licking, especially in the reward zones, in both contexts and mostly similar speeds. Mice which have learned the task will pre-dominantly lick in the rewarded context, and especially so in the reward zone and in the area before, which we considered the \textit{anticipatory zone}.
 We computed a learning metric following this formula:
 \begin{equation}
@@ -72,7 +73,7 @@ The acquisition of recordings with the MBP-GCaMP injected mouse follows the proc
 %TODO: mention all recordings or just the ones used in the "analysis"
 At approximately 80 µm depth, cells from one FOV were imaged from at 1x and 2x zoom, for 10 mins each.
 % TODO: was it the same FOV
-For one recording, the laser power was alternated to check whether calcium dynamics were induced by photostimulation (TODO: is this the correct word?). Cells were imaged for 3 minutes each with 18, 33, 52 and 74 mW power on sample.
+For one recording, the laser power was alternated to check whether calcium dynamics were induced by photostimulation (TODO: is this the correct word?). Cells were imaged for 3 minutes each with 33, 52 and 74 mW power on sample.
 \subsection{Calcium activity detection}
 Raw images were processed in suite2p (https://github.com/MouseLand/suite2p) for motion correction and calcium signal extraction. Calcium signals were then deconvolved using an OASIS deconvolution algorithm\\ (https://github.com/j-friedrich/OASIS).
 % TODO: probably also cite OASIS paper?
@@ -113,6 +114,13 @@ Lastly, samples were mounted using ProLong Glass Antifade Mountant (Invitrogen) 
 \subsection{MBP-GCaMP}
 % TODO: are the suppliers etc correct
 For validation of sensitivity and specificity of the MBP-GCaMP virus, the injected mouse was sacrificed and perfused. Samples were obtained and stained following the procedure described above. We used rabbit-anti-ASPA (ABN1698; Sigma), mouse-anti-Olig2 (MABN50, Millipore) and chicken-anti-GFP (ab13970; Abcam) in blocking solution (all 1:500). For secondary antibodies, we used goat-anti-rabbit (647 nm; A-21245; Invitrogen), goat-anti-mouse (594 nm; A-11005; Invitrogen) and goat-anti-chicken (488 nm; A-11039; Invitrogen) antibodies in blocking solution (all 1:500).
+To further investigate whether neurons, astrocytes or microglia had been labelled by the MBP-GCaMP virus, we developed two staining panels:
+\begin{enumerate}
+    \item (I) Primary antibodies: chicken-anti-NeuN (1:500, supplier?), mouse-anti-Olig2 (MABN50, Millipore), rabbit-anti-Iba1 (019-19741; Fujifilm Wako) in blocking solution (all 1:500)
+    \item (II) Primary antibodies: chicken-anti-NeuN (1:500, supplier?), mouse-anti-Olig2 (MABN50, Millipore), rabbit-anti-GFAP (Z0334; Dako) in blocking solution (all 1:500).
+\end{enumerate}
+For secondary antibodies, we used goat-anti-chicken (488 nm; A-11039; Invitrogen), goat-anti-mouse (594 nm; A-11005; Invitrogen) and goat-anti-rabbit (647 nm; A-21245; Invitrogen) antibodies in blocking solution (all 1:500).
+\end{enumerate}
 \subsection{Myelination area fraction}
 % TODO: wording
 % TODO: check with Rikesh if this is consistent
@@ -133,5 +141,11 @@ GFP-positive cells were considered labelled by the GCaMP virus. Cells were consi
 % TODO: some had more or less steps in the z-stack, right?
 % TODO: how much was actually analysed?
 Confocal images were acquired using a confocal laser scanning microscope (LSM800; Zeiss) with a 40x oil immersion objective. Images were taken from the deep as well as superficial pre-frontal cortex (TODO: is this right?) and from the corpus callosum, with 5 FOVs per region on average. Each image encompasses a z-stack with a step size of 1 μm.\\
-Further analysis was conducted using custom-written Python scripts (Python XX):
+Further analysis was conducted using custom-written Python scripts (Python 3.12.3):
+For each image, the slice with the highest intensity, along with the adjacent slice(s) (either top or bottom or both, depending on the initial slice's position) were included in the analysis. Then, area fraction was computed for each slice and the mean computed for the image.
 % TODO: add the analysis steps from the python code
+\section{Slide scanner imaging}
+% TODO: add more imaging info
+Fluorescence images were acquired using a microscope slider scanner (Axioscan 7; Zeiss) with a XXzoom objective. Images were taken from 8 slides with 3 sections each. For each section, the entire brain was captured.
+% TODO: add more analysis steps
+XX "analysis steps"
